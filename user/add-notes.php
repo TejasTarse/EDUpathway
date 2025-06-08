@@ -165,8 +165,11 @@ $("#subject").html(data);
                                         <option value="M.tech">M.Tech</option>
                                         <option value="MBA">MBA</option>
                                         <option value="Msc">M.Sc</option>
-                                        <option value="M.com">M.Com</option>
                                         <option value="MA">MA</option>
+                                        <option value="M.com">M.Com</option>
+                                        <option value="MCA">MCA</option>
+                                        <option value="LLM">LLM</option>
+                                        
                                     </select>
                                 </div>
                                 <div class="mb-3">

@@ -273,16 +273,77 @@ include('user/includes/dbconnection.php');
                     $results1 = $query1->fetchAll(PDO::FETCH_OBJ);
                     $total_rows = $query1->rowCount();
                     $total_pages = ceil($total_rows / $no_of_records_per_page);
-                    $sql = "SELECT tblnotes.*,tbluser.* from tblnotes join tbluser on tblnotes.UserID=tbluser.ID LIMIT $offset, $no_of_records_per_page";
+                    $sql = "SELECT tblnotes.*,tbluser.* from tblnotes join tbluser on tblnotes.UserID=tbluser.ID WHERE tblnotes.Category = 'MBA' LIMIT $offset, $no_of_records_per_page";
                     $query = $dbh->prepare($sql);
 
                     $query->execute();
                     $results = $query->fetchAll(PDO::FETCH_OBJ);
 
-                   ?>
+                    $cnt = 1;
+                    if ($query->rowCount() > 0) {
+                        foreach ($results as $row) { ?>
+                            <div class="col-lg-6 wow fadeInUp" data-wow-delay="<?php echo 0.2 * $cnt; ?>s">
+                                <div class="properties properties2 mb-30">
+                                    <div class="properties__card">
+                                        <div class="properties__img overlay1">
+                                            <i class="far fa-folder"  style='font-size:72px;color:red' aria-hidden="true" title="Notes Icon"></i>
+                                        </div>
+                                        <div class="properties__caption p-4">
+                                            <p class="text- fw-bold"><?php echo htmlentities($row->Subject); ?></p>
+                                            <p class="text- fw-bold " style='font-size:30px;color:#C86FFF'><?php echo htmlentities($row->Category); ?></p>
+                                            <h3 class="mb-3"><?php echo htmlentities($row->NotesTitle); ?> <small class="text-muted">By (<?php echo htmlentities($row->FullName); ?>)</small></h3>
+                                            <p class="mb-3"><?php echo htmlentities($row->NotesDecription); ?>.</p>
+                                            <table class="table table-bordered text-center">
+                                                <tbody>
+                                                    <tr>
+                                                        <th width="150">File 1</th>
+                                                        <td colspan="3">
+                                                            <a href="user/folder1/<?php echo $row->File1; ?>" target="_blank" class="btn-danger px-4 py-2 rounded">Download File</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>File 2</th>
+                                                        <td colspan="3">
+                                                            <?php if (empty($row->File2)) {
+                                                                echo '<span class="text-danger fw-bold">File is not available</span>';
+                                                            } else { ?>
+                                                                <a href="user/folder2/<?php echo $row->File2; ?>" target="_blank" class="btn-danger px-4 py-2 rounded">Download File</a>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>File 3</th>
+                                                        <td colspan="3">
+                                                            <?php if (empty($row->File3)) {
+                                                                echo '<span class="text-danger fw-bold">File is not available</span>';
+                                                            } else { ?>
+                                                                <a href="user/folder3/<?php echo $row->File3; ?>" target="_blank" class="btn-danger px-4 py-2 rounded">Download File</a>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>File 4</th>
+                                                        <td colspan="3">
+                                                            <?php if (empty($row->File4)) {
+                                                                echo '<span class="text-danger fw-bold">File is not available</span>';
+                                                            } else { ?>
+                                                                <a href="user/folder4/<?php echo $row->File4; ?>" target="_blank" class="btn-danger px-4 py-2 rounded">Download File</a>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php $cnt++;
+                        }
+                    } ?>
                 </div>
 
                 
+               
 
             </div>
         </div>

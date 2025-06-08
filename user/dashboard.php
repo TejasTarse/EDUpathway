@@ -69,7 +69,7 @@ foreach($results as $row)
                 <div class="row g-8">
                     <div class="col-sm-6 col-xl-4">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-file fa-6x text-primary"></i>
+                            <i class="fa fa-file fa-6x text-danger"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Total Uploaded Subject Notes</p>
                                  <?php 
@@ -81,7 +81,7 @@ $query1->execute();
 $results1=$query1->fetchAll(PDO::FETCH_OBJ);
 $totnotes=$query1->rowCount();
 ?>
-                                <h4 style="color: blue"><?php echo htmlentities($totnotes);?></h4>
+                                <h4 style="color: red"><?php echo htmlentities($totnotes);?></h4>
                                         <a href="manage-notes.php"><h5>View Detail</h5></a>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ $totnotes=$query1->rowCount();
         
                     <div class="col-sm-6 col-xl-4">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-file fa-6x text-primary"></i>
+                            <i class="fa fa-file fa-6x text-danger"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Total Uploaded Notes File</p>
                                  <?php 
@@ -109,7 +109,7 @@ foreach($results1 as $rows)
     $totalfiles=$rows->file+$rows->file2+$rows->file3+$rows->file4;
 }
 ?>
-                                <h4 style="color: blue"><?php echo htmlentities($totalfiles);?></h4>
+                                <h4 style="color: red"><?php echo htmlentities($totalfiles);?></h4>
                                         <a href="manage-notes.php"><h5>View Detail</h5></a>
                             </div>
                         </div>

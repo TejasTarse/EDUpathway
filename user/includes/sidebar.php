@@ -9,7 +9,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="dashboard.php" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary">ONSS</h3>
+                    <h3 class="text-danger">EDUpathway</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -34,9 +34,9 @@ foreach($results as $row)
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="dashboard.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="dashboard.php" class="nav-item text-danger nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-file me-2"></i>Notes</a>
+                        <a href="#" class="nav-link text-danger dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-file me-2"></i>Notes</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="add-notes.php" class="dropdown-item">Add Notes</a>
                             <a href="manage-notes.php" class="dropdown-item">Manage Notes</a>
@@ -44,10 +44,10 @@ foreach($results as $row)
                     </div>
 
   <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user me-2"></i>Profile</a>
+                        <a href="#" class="nav-link text-danger dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user me-2"></i>Profile</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="profile.php" class="dropdown-item">My Profile</a>
-                            <a href="setting.php" class="dropdown-item">Chnage Password</a>
+                            <a href="setting.php" class="dropdown-item">Change Password</a>
                         </div>
                     </div>
 
